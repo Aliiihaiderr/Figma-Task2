@@ -1,0 +1,45 @@
+@mixin display-flex($align-item , $justify-content) {
+    display: flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+
+@mixin footer-text-element($width) {
+    width: $width;
+    height: 40px;
+    padding: 10px;
+    gap: 10px;
+    @include display-flex(stretch, flex-start);
+
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+@mixin box-imputs ($height) {
+    width: 100%;
+    height: $height;
+    padding: 10px 14px 10px 14px;
+    margin-top: 8px;
+    @include display-flex(stretch, flex-start);
+    gap: 8px;
+    border-radius: 8px;
+    background-color: map-get($bg-color, bg-light-gray);
+    border: none;
+    box-shadow: 0px 1px 1px 0px #0000001F;
+    box-shadow: 0px 0px 0px 1px #676E7629;
+}
+
+@mixin policy {
+    padding: 10px;
+    gap: 10px;
+    @include display-flex(stretch, flex-start);
+
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
