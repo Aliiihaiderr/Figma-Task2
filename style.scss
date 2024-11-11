@@ -1,4 +1,6 @@
 @import 'colors';
+@import 'mixin';
+
 
 * {
     margin: 0;
@@ -7,225 +9,196 @@
     font-family: 'proxima-nova', sans-serif;
 }
 
-@mixin display-flex($align-item , $justify-content) {
-    display: flex;
-    align-items: $align-item;
-    justify-content: $justify-content;
-}
-
-@mixin footer-text-element($width) {
-    width: $width;
-    height: 40px;
-    padding: 10px;
-    gap: 10px;
-    @include display-flex(stretch, flex-start);
-
-    p {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 20px;
-    }
-}
-
-@mixin box-imputs ($height) {
-    width: 100%;
-    height: $height;
-    padding: 10px 14px 10px 14px;
-    margin-top: 8px;
-    @include display-flex(stretch, flex-start);
-    gap: 8px;
-    border-radius: 8px;
-    background-color: map-get($bg-color, bg-light-gray);
-    border: none;
-    box-shadow: 0px 1px 1px 0px #0000001F;
-    box-shadow: 0px 0px 0px 1px #676E7629;
-}
-
-@mixin policy {
-    padding: 10px;
-    gap: 10px;
-    @include display-flex(stretch, flex-start);
-
-    p {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
-    }
-}
-
 .container {
     background: map-get($bg-color , bg-container);
     border-radius: 56px;
     padding: 50px;
 
     .card-container {
-        width: 1180px;
         margin: 50px auto;
     }
 
-    .text-container {
+}
 
-        max-width: 100%;
+.aggrement-input {
+    max-width: 100%;
+    margin: 0px 32px 32px 32px;
+
+    .checkbox {
+        @include display-flex(stretch, flex-start);
+        padding: 4px 0 4px 0;
+        gap: 8px;
+
+        input {
+            margin-left: 4px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 20px;
+            color: map-get($text-color, light-black-color);
+        }
+    }
+
+    .button {
+        @include display-flex(center, center);
 
         button {
-            padding: 6px 14px 6px 14px;
-            border-radius: 99px;
+            padding: 10px 140px 10px 140px;
+            border-radius: 8px;
+            font-size: 21px;
+            background: map-get($bg-color, bg-submit-button);
+            color: map-get($text-color , white-color);
+            margin-top: 32px;
             border: none;
-            background-color: map-get($bg-color, bg-contact-us-button);
-            gap: 6px;
-            @include display-flex(center, flex-start);
-
-            label {
-                font-size: 14px;
-                line-height: 17px;
-                font-weight: 400;
-                color: map-get($text-color, light-black-color);
-
-            }
-
-            &::before {
-                content: " ";
-                background-image: url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.83541 5.04678C3.61402 5.12356 3.43023 5.24173 3.29715 5.39291C3.17257 5.53442 3.04332 5.77665 3.02578 5.90153C3.0162 5.9696 3.24073 6.09946 6.75803 8.05988L10.5005 10.1458L14.2424 8.06029C17.7668 6.09603 17.9838 5.97054 17.9742 5.90194C17.9559 5.77082 17.8232 5.5278 17.6879 5.37721C17.5977 5.27697 17.4834 5.19407 17.3319 5.11919L17.1087 5.00888L10.5455 5.00237C4.37801 4.99628 3.97341 4.99894 3.83541 5.04678ZM3.00779 10.3466L3.01558 13.8554L3.10715 14.0458C3.22292 14.2866 3.36174 14.445 3.56152 14.5646C3.89163 14.762 3.39818 14.7489 10.5 14.7489C17.6018 14.7489 17.1084 14.762 17.4385 14.5646C17.6383 14.445 17.7771 14.2866 17.8928 14.0458L17.9844 13.8554L17.9922 10.3497L18 6.84398L16.923 7.44481C10.4358 11.0638 10.5925 10.9784 10.4725 10.9623C10.3951 10.9519 9.21646 10.3104 6.74602 8.93402C4.75874 7.82682 3.10288 6.90221 3.06638 6.87933L3 6.83774L3.00779 10.3466Z' fill='%230A254D'/%3E%3C/svg%3E%0A");
-                width: 20px;
-                height: 20px;
-                display: inline-block;
-            }
-
+            cursor: pointer;
         }
+    }
+}
 
-        .text {
-            width: 705px;
-            margin-top: 24px;
+.text-container {
+    width: 100%;
+    max-width: 100%;
+
+    button {
+        padding: 6px 14px 6px 14px;
+        border-radius: 99px;
+        border: none;
+        background-color: map-get($bg-color, bg-contact-us-button);
+        gap: 6px;
+        @include display-flex(center, flex-start);
+
+        p {
+            font-size: 14px;
+            line-height: 17px;
+            font-weight: 400;
             color: map-get($text-color, light-black-color);
 
-            h3 {
-                font-weight: 600;
-                font-size: 48px;
-                line-height: 50px;
-                letter-spacing: -1px;
-                font-family: 'proxima-nova', sans-serif;
-            }
+        }
 
-            p {
-                font-weight: 400;
-                font-size: 20px;
+        &::before {
+            content: " ";
+            background-image: url("data:image/svg+xml,%3Csvg width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.83541 5.04678C3.61402 5.12356 3.43023 5.24173 3.29715 5.39291C3.17257 5.53442 3.04332 5.77665 3.02578 5.90153C3.0162 5.9696 3.24073 6.09946 6.75803 8.05988L10.5005 10.1458L14.2424 8.06029C17.7668 6.09603 17.9838 5.97054 17.9742 5.90194C17.9559 5.77082 17.8232 5.5278 17.6879 5.37721C17.5977 5.27697 17.4834 5.19407 17.3319 5.11919L17.1087 5.00888L10.5455 5.00237C4.37801 4.99628 3.97341 4.99894 3.83541 5.04678ZM3.00779 10.3466L3.01558 13.8554L3.10715 14.0458C3.22292 14.2866 3.36174 14.445 3.56152 14.5646C3.89163 14.762 3.39818 14.7489 10.5 14.7489C17.6018 14.7489 17.1084 14.762 17.4385 14.5646C17.6383 14.445 17.7771 14.2866 17.8928 14.0458L17.9844 13.8554L17.9922 10.3497L18 6.84398L16.923 7.44481C10.4358 11.0638 10.5925 10.9784 10.4725 10.9623C10.3951 10.9519 9.21646 10.3104 6.74602 8.93402C4.75874 7.82682 3.10288 6.90221 3.06638 6.87933L3 6.83774L3.00779 10.3466Z' fill='%230A254D'/%3E%3C/svg%3E%0A");
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+    }
+
+    .text {
+        width: 705px;
+        margin-top: 24px;
+        color: map-get($text-color, light-black-color);
+
+        h3 {
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 50px;
+            letter-spacing: -1px;
+            font-family: 'proxima-nova', sans-serif;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            margin-top: 16px;
+        }
+    }
+}
+
+.input-container {
+    background: map-get($bg-color , bg-input-container);
+    max-width: 1000px;
+    border-radius: 16px;
+    margin: 32px auto;
+    border: 1px solid #EAECF0;
+    box-shadow: 0px 55.86px 85.65px 0px #262C3B11;
+
+    .inputs {
+        padding: 32px ;
+        margin: auto;
+        @include display-flex(stretch, space-between)
+    }
+
+}
+
+.left-box {
+    width: 437px;
+
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .first-input{
+
+        input {
+            @include box-imputs(44px);
+            padding: 12px 20px 12px 46px;
+            &::placeholder {
+                font-size: 16px;
                 line-height: 24px;
-                margin-top: 16px;
+                color: map-get($text-color, place-holder-color);
+            }
+            &:hover{
+                background-color: hsl(0, 0%, 100%);
+            }
+        }
+    }
+    .second-input{
+
+
+        input {
+            @include box-imputs(44px);
+            padding: 13px 20px 12px 44px;
+
+            &::placeholder {
+                font-size: 16px;
+                line-height: 24px;
+                color: map-get($text-color, place-holder-color);
+            }
+            &:hover{
+                background-color: hsl(0, 0%, 100%);
             }
         }
     }
 
-    .input-container {
-        background: map-get($bg-color , bg-input-container);
-        width: 970px;
-        max-width: 100%;
-        border-radius: 16px;
-        margin: 32px auto;
-        border: 1px solid #EAECF0;
-        box-shadow: 0px 55.86px 85.65px 0px #262C3B11;
+    &> :nth-child(2) {
+        margin-top: 24px;
+    }
+}
 
-        .inputs {
-            width: 906px;
-            padding: 32px 0 32px 0;
-            margin: auto;
-            @include display-flex(stretch, space-between)
-        }
+.right-box {
+    width: 437px;
 
-
-
-        .aggrement {
-            width: 906px;
-            margin: 0px 32px 32px 32px;
-
-            .checkbox {
-                @include display-flex(stretch, flex-start);
-                padding: 4px 0 4px 0;
-                gap: 8px;
-
-                input {
-                    margin-left: 4px;
-                }
-
-                p {
-                    font-size: 16px;
-                    line-height: 20px;
-                    color: map-get($text-color, light-black-color);
-                }
-            }
-
-            .button {
-                @include display-flex(center, center);
-
-                button {
-                    padding: 10px 140px 10px 140px;
-                    border-radius: 8px;
-                    font-size: 21px;
-                    background: map-get($bg-color, bg-submit-button);
-                    color: map-get($text-color , white-color);
-                    margin-top: 32px;
-                    border: none;
-                }
-            }
-        }
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
     }
 
-    .left-box {
-        width: 437px;
-
-        p {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
-        }
-
-        .first-input{
-            input {
-                @include box-imputs(44px);
-                background-image: url(Icon1.png);
-                background-repeat: no-repeat;
-                background-position: 14px 10px;
-                padding: 12px 20px 12px 46px;
-    
-                &::placeholder {
-                    font-size: 16px;
-                    line-height: 24px;
-                    color: map-get($text-color, place-holder-color);
-                }
-            }
-        }
-        .second-input{
-            input {
-                @include box-imputs(44px);
-                background-image: url(Icon2.png);
-                background-repeat: no-repeat;
-                background-position: 14px 10px;
-                padding: 13px 20px 12px 44px;
-    
-                &::placeholder {
-                    font-size: 16px;
-                    line-height: 24px;
-                    color: map-get($text-color, place-holder-color);
-                }
-            }
-        }
-
-        &> :nth-child(2) {
-            margin-top: 24px;
+    textarea {
+        @include box-imputs(144px);
+        &:hover{
+            background-color: hsl(0, 0%, 100%);
         }
     }
+}
 
-    .right-box {
-        width: 437px;
+.icon-input-div{
+    display: flex;
+    align-items: center;
 
-        p {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 20px;
-        }
-
-        textarea {
-            @include box-imputs(144px);
-        }
+    .input-icon{
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        margin-left: 14px;
+        margin-top: 5px;
     }
 }
 
@@ -245,76 +218,78 @@
         flex-direction: column;
     }
 
-    .footer-elements {
-        color: map-get($text-color, light-black-color);
-        @include display-flex(center, space-between);
+}
+
+.footer-elements {
+    color: map-get($text-color, light-black-color);
+    @include display-flex(center, space-between);
 
 
-        .footer-logo-elemet {
-            @include display-flex(stretch, flex-start);
-        }
-
-        .logo-image {
-            width: 20.18px;
-            height: 21.12px;
-        }
-
-        .logo-text {
-            width: 112.77px;
-            height: 18.08px;
-            margin-left: 7.05px;
-        }
-
-        .footer-email-elemet {
-            p {
-                font-weight: 400;
-                font-size: 16px;
-                line-height: 20px;
-            }
-        }
-    }
-
-    .footer-text-elemet {
+    .footer-logo-elemet {
         @include display-flex(stretch, flex-start);
-        gap: 16px;
-
-        .text-element-1 {
-            @include footer-text-element(63px)
-        }
-
-
-        .text-element-2 {
-            @include footer-text-element(52px)
-        }
-
-        .text-element-3 {
-            @include footer-text-element(95px);
-        }
     }
 
-    .copyright-element {
-        @include display-flex(center, space-between);
+    .logo-image {
+        width: 20.18px;
+        height: 21.12px;
+    }
 
+    .logo-text {
+        width: 112.77px;
+        height: 18.08px;
+        margin-left: 7.05px;
+    }
+
+    .footer-email-elemet {
         p {
             font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
+            font-size: 16px;
+            line-height: 20px;
         }
+    }
+}
 
+.footer-text-elemet {
+    @include display-flex(stretch, flex-start);
+    gap: 16px;
 
+    .text-element-1 {
+        @include footer-text-element(63px)
     }
 
-    .policy {
-        @include display-flex(stretch, space-between);
-        width: 218px;
-        color: map-get($text-color, light-black-color);
 
-        .privacy {
-            @include policy;
-        }
+    .text-element-2 {
+        @include footer-text-element(52px)
+    }
 
-        .terms {
-            @include policy;
-        }
+    .text-element-3 {
+        @include footer-text-element(95px);
+        min-width: 6.2rem
+    }
+}
+
+.copyright-element {
+    @include display-flex(center, space-between);
+
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+
+}
+
+.policy {
+    @include display-flex(stretch, space-between);
+    width: 218px;
+    color: map-get($text-color, light-black-color);
+
+    .privacy {
+        @include policy;
+    }
+
+    .terms {
+        @include policy;
     }
 }
